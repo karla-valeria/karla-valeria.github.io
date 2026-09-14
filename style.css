@@ -321,6 +321,37 @@ footer {
     font-weight: 700;
 }
 
+/* ------------------------------
+   PROJECT PAGE
+------------------------------ */
+
+.project-header {
+    min-height: 70vh;
+    padding: 8vw 5vw;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid #111111;
+}
+
+.project-header-content {
+    max-width: 1000px;
+}
+
+.project-header h1 {
+    margin-bottom: 35px;
+
+    font-size: clamp(5rem, 12vw, 12rem);
+    line-height: 0.82;
+    letter-spacing: -0.08em;
+    font-weight: 700;
+}
+
+.project-header .hero-description {
+    max-width: 650px;
+}
+
 
 /* ------------------------------
    RESPONSIVE
@@ -402,5 +433,13 @@ footer {
 
     .skill p {
         font-size: 1.1rem;
+    }
+
+        .project-header {
+        padding: 20vw 5vw;
+    }
+
+    .project-header h1 {
+        font-size: 22vw;
     }
 }
