@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Databases | Valerie Rodriguez</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">VR</a>
+
+        <nav>
+            <a href="index.html#about">About</a>
+            <a href="index.html#code-review">Code Review</a>
+            <a href="index.html#portfolio">Portfolio</a>
+            <a href="index.html#skills">Skills</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- Page Header -->
+        <section class="project-header">
+
+            <div class="project-header-content">
+
+                <p class="eyebrow">
+                    CATEGORY THREE • DATABASES
+                </p>
+
+                <h1>
+                    Travlr<br>
+                    Database
+                </h1>
+
+                <p class="hero-description">
+                    A full-stack travel application enhanced with
+                    backend search and filtering using Angular,
+                    Express, Mongoose, and MongoDB.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Artifact -->
+        <section class="section">
+
+            <div class="section-label">
+                <span>01</span>
+                <span>ARTIFACT</span>
+            </div>
+
+            <div class="section-content">
+
+                <h2>
+                    The original
+                    <span>artifact.</span>
+                </h2>
+
+                <p>
+                    I selected my Travlr application for the Databases
+                    category of my CS 499 ePortfolio. The application
+                    was originally developed as a full-stack travel
+                    application using Angular for the frontend,
+                    Express for the backend API, Mongoose for database
+                    interaction, and MongoDB for persistent data storage.
+                </p>
+
+                <p>
+                    The application allows users to view available
+                    trips through the Angular interface. When the trip
+                    listing component is initialized, it uses the
+                    TripDataService to send a request to the Express
+                    API. The API retrieves trip records from MongoDB
+                    and returns the results to the Angular application.
+                </p>
+
+                <p>
+                    The backend also supports CRUD functionality for
+                    trip information. Users can retrieve an individual
+                    trip by its code, add new trips, and update existing
+                    trips. The trips controller uses Mongoose to perform
+                    these database operations.
+                </p>
+
+                <p>
+                    The Travlr Mongoose schema defines fields including
+                    the trip code, name, length, start date, resort,
+                    price per person, image, and description. These
+                    fields determine the structure of the trip documents
+                    stored in MongoDB.
+                </p>
+
+                <p>
+                    The original application provided a functional
+                    connection between the frontend, backend API, and
+                    database. However, the original trip listing
+                    retrieved all trip records without allowing users
+                    to search or filter the database results.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Enhancement -->
+        <section class="section">
+
+            <div class="section-label">
+                <span>02</span>
+                <span>ENHANCEMENT</span>
+            </div>
+
+            <div class="section-content">
+
+                <h2>
+                    What I
+                    <span>changed.</span>
+                </h2>
+
+                <p>
+                    For my CS 499 capstone enhancement, I added advanced
+                    search and filtering functionality to the Travlr
+                    application. The enhancement allows users to narrow
+                    available trips based on information such as
+                    destination, price, and trip length.
+                </p>
+
+                <p>
+                    The original backend used an empty Mongoose
+                    <code>find()</code> query to retrieve every trip
+                    from MongoDB. I modified the application so that
+                    the user's search criteria can be sent from the
+                    Angular frontend to the Express API.
+                </p>
+
+                <p>
+                    The backend processes those criteria and constructs
+                    a Mongoose query based on the values provided by
+                    the user. Destination information can be used to
+                    narrow the results, while minimum and maximum
+                    price values can be used to create a price range.
+                    Trip length can also be used as a filtering
+                    condition.
+                </p>
+
+                <p>
+                    The filtering process now takes place on the
+                    backend. The user selects search criteria, Angular
+                    sends the request to the API, Express processes the
+                    request, Mongoose creates the database query, and
+                    MongoDB returns only the matching trips. The
+                    results are then returned to Angular and displayed
+                    to the user.
+                </p>
+
+                <p>
+                    I also improved the database implementation by
+                    addressing data types used for searchable values,
+                    validating search parameters, improving error
+                    handling, and testing the filtering functionality.
+                    These changes make the database functionality more
+                    flexible and useful as the number of available trips
+                    increases.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Code Review -->
+        <section class="section">
+
+            <div class="section-label">
+                <span>03</span>
+                <span>CODE REVIEW</span>
+            </div>
+
+            <div class="section-content">
+
+                <h2>
+                    What I
+                    <span>identified.</span>
+                </h2>
+
+                <p>
+                    My code review focused on the structure, efficiency,
+                    functionality, error handling, data organization,
+                    and maintainability of the existing database
+                    implementation.
+                </p>
+
+                <p>
+                    One of the main limitations I identified was the
+                    original tripsList function. It used
+                    <code>find({})</code>, which retrieved every trip
+                    document from MongoDB regardless of what information
+                    the user needed. While this worked with a small
+                    dataset, it was not an efficient approach for a
+                    larger collection.
+                </p>
+
+                <p>
+                    I also identified that fields such as
+                    <code>length</code> and <code>perPerson</code> were
+                    originally stored as strings. Because these values
+                    are used for numerical comparisons during filtering,
+                    their data types needed to be considered when
+                    designing the enhanced database queries.
+                </p>
+
+                <p>
+                    Another area for improvement was error handling.
+                    The original database operations primarily checked
+                    whether a query returned a result rather than
+                    consistently handling database exceptions. The
+                    enhanced implementation provides more appropriate
+                    handling for potential errors during database
+                    operations.
+                </p>
+
+                <p>
+                    I also reviewed the existing comments and
+                    documentation and improved them where necessary so
+                    that they accurately describe the application's
+                    updated functionality.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Skills -->
+        <section class="section">
+
+            <div class="section-label">
+                <span>04</span>
+                <span>SKILLS</span>
+            </div>
+
+            <div class="section-content">
+
+                <h2>
+                    Skills I
+                    <span>demonstrated.</span>
+                </h2>
+
+                <div class="skills-list">
+
+                    <div class="skill">
+                        <span>01</span>
+                        <p>MongoDB Database Management</p>
+                    </div>
+
+                    <div class="skill">
+                        <span>02</span>
+                        <p>Mongoose Schema & Query Design</p>
+                    </div>
+
+                    <div class="skill">
+                        <span>03</span>
+                        <p>Express REST API Development</p>
+                    </div>
+
+                    <div class="skill">
+                        <span>04</span>
+                        <p>Angular API Integration</p>
+                    </div>
+
+                    <div class="skill">
+                        <span>05</span>
+                        <p>Database Search & Filtering</p>
+                    </div>
+
+                    <div class="skill">
+                        <span>06</span>
+                        <p>Query Construction & Data Handling</p>
+                    </div>
+
+                    <div class="skill">
+                        <span>07</span>
+                        <p>Input Validation & Error Handling</p>
+                    </div>
+
+                    <div class="skill">
+                        <span>08</span>
+                        <p>Database Testing</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Course Outcomes -->
+        <section class="section">
+
+            <div class="section-label">
+                <span>05</span>
+                <span>COURSE OUTCOMES</span>
+            </div>
+
+            <div class="section-content">
+
+                <h2>
+                    Course
+                    <span>outcomes.</span>
+                </h2>
+
+                <p>
+                    This enhancement demonstrates my ability to apply
+                    computing and database principles to an existing
+                    full-stack application. The search and filtering
+                    functionality requires the application to process
+                    user-selected criteria and use those criteria to
+                    construct database queries.
+                </p>
+
+                <p>
+                    The project demonstrates my ability to use
+                    appropriate programming tools and technologies,
+                    including Angular, Express, Mongoose, and MongoDB,
+                    to implement a computing solution that provides
+                    additional value to users.
+                </p>
+
+                <p>
+                    The enhancement also demonstrates my ability to
+                    evaluate existing code and identify opportunities
+                    for improvement in efficiency, data organization,
+                    error handling, validation, and maintainability.
+                </p>
+
+                <p>
+                    By moving the filtering functionality to the
+                    backend, the enhanced application uses the database
+                    to return only records that match the user's search
+                    criteria rather than retrieving the entire
+                    collection.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Narrative -->
+        <section class="section">
+
+            <div class="section-label">
+                <span>06</span>
+                <span>NARRATIVE</span>
+            </div>
+
+            <div class="section-content">
+
+                <h2>
+                    Project
+                    <span>reflection.</span>
+                </h2>
+
+                <p>
+                    This project gave me the opportunity to evaluate an
+                    existing full-stack application from a database
+                    perspective rather than simply treating the database
+                    as a place to store information.
+                </p>
+
+                <p>
+                    Reviewing the original Travlr code helped me
+                    understand how information moves through the
+                    application. Angular requests data through a
+                    service, the Express API receives the request, the
+                    trips controller uses Mongoose to communicate with
+                    MongoDB, and the results are returned to the
+                    frontend.
+                </p>
+
+                <p>
+                    The original application retrieved all trips using
+                    an unfiltered database query. Identifying this
+                    limitation helped me understand how database design
+                    and query construction can directly affect the
+                    application's functionality and efficiency.
+                </p>
+
+                <p>
+                    Implementing the enhancement required me to connect
+                    frontend user input with backend database logic.
+                    I had to consider how search criteria should be
+                    transmitted through the API, how Mongoose should
+                    construct the query, and how MongoDB should return
+                    the appropriate results.
+                </p>
+
+                <p>
+                    This enhancement demonstrates my growth in database
+                    management, full-stack development, API design,
+                    problem solving, and code review. It also demonstrates
+                    my ability to take an existing application, identify
+                    a specific weakness, and implement a meaningful
+                    improvement without changing the application's
+                    original purpose.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Files -->
+        <section class="section">
+
+            <div class="section-label">
+                <span>07</span>
+                <span>FILES</span>
+            </div>
+
+            <div class="section-content">
+
+                <h2>
+                    Project
+                    <span>files.</span>
+                </h2>
+
+                <p>
+                    The original artifact contains the Travlr
+                    application that served as the foundation for this
+                    capstone enhancement. The enhanced artifact contains
+                    the completed version with backend search and
+                    filtering functionality.
+                </p>
+
+                <a href="https://github.com/karla-valeria/CS465-fullstack"
+                   class="button"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Original Artifact →
+                </a>
+
+                <br><br>
+
+                <a href="[ENHANCED-TRAVLR-ARTIFACT-LINK]"
+                   class="button"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Enhanced Artifact →
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-name">
+            Valerie Rodriguez
+        </div>
+
+        <p>
+            CS 499 • Computer Science Capstone
+        </p>
+
+        <p>
+            © 2026 Valerie Rodriguez
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
