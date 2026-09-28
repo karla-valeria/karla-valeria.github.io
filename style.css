@@ -210,6 +210,17 @@ a {
     line-height: 1.8;
 }
 
+#self-assessment .section-content {
+    max-width: 1200px;
+}
+
+#self-assessment p {
+    max-width: 850px;
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
 
 /* ------------------------------
    PROJECTS
